@@ -6,8 +6,8 @@ description: >
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    trigger-pipeline: circleci/trigger-pipeline@0.0.0
   workflows:
     use-my-orb:
       jobs:
-        - <orb-name>/<job-name>
+        - trigger-pipeline/hello
