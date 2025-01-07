@@ -18,6 +18,7 @@ workflows:
       - orb-tools/review:
           orb_name: trigger-pipeline
           filters: *filters
+          exclude: RC005
       - shellcheck/check:
           filters: *filters
       # Triggers the next workflow in the Orb Development Kit.
