@@ -11,17 +11,17 @@ if ! command -v jq >/dev/null 2>&1; then
     exit 1
 fi
 
-if [ -n "$PARAM_PROJECT_SLUG" ]; then
+if [ -z "$PARAM_PROJECT_SLUG" ]; then
     echo "A project slug is required"
     exit 1
 fi
 
-if [ -n "$PARAM_DEFINITION_ID" ]; then
+if [ -z "$PARAM_DEFINITION_ID" ]; then
     echo "A definition id is required"
     exit 1
 fi
 
-if [ -n "$PARAM_TOKEN" ]; then
+if [ -z "$PARAM_TOKEN" ]; then
     echo "A token is required"
     exit 1
 fi
