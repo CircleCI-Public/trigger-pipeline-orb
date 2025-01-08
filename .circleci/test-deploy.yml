@@ -37,13 +37,12 @@ workflows:
       # The orb must be re-packed for publishing, and saved to the workspace.
       - orb-tools/pack:
           filters: *release-filters
-      # - orb-tools/publish:
-      #     orb_name: <namespace>/<orb-name>
-      #     vcs_type: << pipeline.project.type >>
-      #     pub_type: dev
-      #     # Ensure this job requires all test jobs and the pack job.
-      #     requires:
-      #       - orb-tools/pack
-      #       - command-test
-      #     context: orb-publisher
-      #     filters: *release-filters
+      - orb-tools/publish:
+          orb_name: circleci/trigger-pipeline
+          vcs_type: << pipeline.project.type >>
+          pub_type: production
+          # Ensure this job requires all test jobs and the pack job.
+          requires:
+            - trigger-pipeline/trigger
+          context: orb-publisher
+          filters: *release-filters
