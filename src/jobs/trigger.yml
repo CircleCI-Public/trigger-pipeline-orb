@@ -17,7 +17,7 @@ parameters:
     type: string
     default: ""
     description: Tag where the pipeline will be run from. Not compatible with branch.
-  definition_id: 
+  definition_id:
     type: string
     description: Definition id of the pipeline to run. Can be found on project settings
   token:
