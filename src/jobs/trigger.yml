@@ -23,7 +23,6 @@ parameters:
   token:
     type: string
     description: Name of the environment variable fro the PAT token to use for authentication.
-  executor:
 steps:
   - trigger:
       project_slug: <<parameters.project_slug>>
