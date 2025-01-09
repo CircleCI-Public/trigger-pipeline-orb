@@ -1,0 +1,31 @@
+description: >
+  This command triggers a CircleCI pipeline. It requires JQ to work.
+  For more information about the parameters go to https://circleci.com/docs/triggers-overview/#run-a-pipeline-using-the-api
+parameters:
+  project_slug:
+    type: string
+    description: The project slug. It can be found on project settings
+  branch:
+    type: string
+    default: ""
+    description: Branch where the pipeline will be run from. Not compatible with tag.
+  tag:
+    type: string
+    default: ""
+    description: Tag where the pipeline will be run from. Not compatible with branch.
+  definition_id:
+    type: string
+    description: Definition id of the pipeline to run. Can be found on project settings
+  token:
+    type: string
+    description: Name of the environment variable fro the PAT token to use for authentication.
+steps:
+  - run:
+      environment:
+        PARAM_PROJECT_SLUG: <<parameters.project_slug>>
+        PARAM_BRANCH: <<parameters.branch>>
+        PARAM_TAG: <<parameters.tag>>
+        PARAM_DEFINITION_ID: <<parameters.definition_id>>
+        PARAM_TOKEN: <<parameters.token>>
+      name: Trigger pipeline
+      command: <<include(scripts/trigger.sh)>>

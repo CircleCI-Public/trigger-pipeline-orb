@@ -1,0 +1,32 @@
+description: >
+  This job triggers a CircleCI pipeline.
+  For more information about the parameters go to https://circleci.com/docs/triggers-overview/#run-a-pipeline-using-the-api
+
+docker:
+  - image: cimg/base:stable
+
+parameters:
+  project_slug:
+    type: string
+    description: The project slug. It can be found on project settings
+  branch:
+    type: string
+    default: ""
+    description: Branch where the pipeline will be run from. Not compatible with tag.
+  tag:
+    type: string
+    default: ""
+    description: Tag where the pipeline will be run from. Not compatible with branch.
+  definition_id:
+    type: string
+    description: Definition id of the pipeline to run. Can be found on project settings
+  token:
+    type: string
+    description: Name of the environment variable fro the PAT token to use for authentication.
+steps:
+  - trigger:
+      project_slug: <<parameters.project_slug>>
+      branch: <<parameters.branch>>
+      tag: <<parameters.tag>>
+      definition_id: <<parameters.definition_id>>
+      token: <<parameters.token>>
