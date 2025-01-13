@@ -2,6 +2,10 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/trigger-pipeline-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/CircleCI-Public/trigger-pipeline-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/circleci/trigger-pipeline.svg)](https://circleci.com/developer/orbs/orb/circleci/trigger-pipeline) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/CircleCI-Public/trigger-pipeline-orb/main/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
+## Testing this orb
+
+The branch _test_ is used to validate the behavior of this orb, don't use it for anything else that is not related to the tests the other branches run.
+
 <!-- TBD. --->
 
 ## Resources
