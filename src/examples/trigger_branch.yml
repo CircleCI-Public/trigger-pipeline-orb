@@ -12,3 +12,4 @@ usage:
             branch: main
             definition_id: $DEFINITION_ID
             token: $CIRCLECI_PAT
+            parameters: color=red,size=medium

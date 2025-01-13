@@ -19,6 +19,10 @@ parameters:
   token:
     type: string
     description: Name of the environment variable fro the PAT token to use for authentication.
+  parameters:
+    type: string
+    description: List of comma separated key=value parameters.
+    default: ""
 steps:
   - run:
       environment:
@@ -27,5 +31,6 @@ steps:
         PARAM_TAG: <<parameters.tag>>
         PARAM_DEFINITION_ID: <<parameters.definition_id>>
         PARAM_TOKEN: <<parameters.token>>
+        PARAM_PARAMETERS: <<parameters.parameters>>
       name: Trigger pipeline
       command: <<include(scripts/trigger.sh)>>

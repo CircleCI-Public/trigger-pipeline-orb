@@ -30,6 +30,7 @@ workflows:
           branch: test
           token: $CIRCLE_TOKEN
           definition_id: $PIPELINE_DEFINITION_ID
+          parameters: color=red,size=medium
           context:
           - trigger-pipeline-orb
           - orb-developer

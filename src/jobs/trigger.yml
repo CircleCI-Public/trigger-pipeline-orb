@@ -23,10 +23,15 @@ parameters:
   token:
     type: string
     description: Name of the environment variable fro the PAT token to use for authentication.
+  parameters:
+    type: string
+    description: List of comma separated key=value parameters.
+    default: ""
 steps:
   - trigger:
       project_slug: <<parameters.project_slug>>
       branch: <<parameters.branch>>
       tag: <<parameters.tag>>
       definition_id: <<parameters.definition_id>>
+      parameters: <<parameters.parameters>>
       token: <<parameters.token>>
