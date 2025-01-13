@@ -26,6 +26,7 @@ workflows:
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
       - trigger-pipeline/trigger:
           filters: *filters
+          name: Trigger with params
           project_slug: github/CircleCI-Public/trigger-pipeline-orb
           branch: test
           token: $CIRCLE_TOKEN
@@ -34,7 +35,16 @@ workflows:
           context:
           - trigger-pipeline-orb
           - orb-developer
-
+      - trigger-pipeline/trigger:
+          filters: *filters
+          name: Trigger with no params
+          project_slug: github/CircleCI-Public/trigger-pipeline-orb
+          branch: test
+          token: $CIRCLE_TOKEN
+          definition_id: $PIPELINE_DEFINITION_ID
+          context:
+          - trigger-pipeline-orb
+          - orb-developer
       # The orb must be re-packed for publishing, and saved to the workspace.
       - orb-tools/pack:
           filters: *release-filters
@@ -44,6 +54,7 @@ workflows:
           pub_type: production
           # Ensure this job requires all test jobs and the pack job.
           requires:
-            - trigger-pipeline/trigger
+            - Trigger with params
+            - Trigger with no params
           context: orb-publisher
           filters: *release-filters
