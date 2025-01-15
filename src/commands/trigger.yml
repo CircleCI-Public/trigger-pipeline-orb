@@ -1,6 +1,6 @@
 description: >
   This command triggers a CircleCI pipeline. It requires JQ to work.
-  For more information about the parameters go to https://circleci.com/docs/triggers-overview/#run-a-pipeline-using-the-api
+  For more information about the parameters go to https://circleci.com/docs/triggers-overview/#run-a-pipeline-using-the-api.
 parameters:
   project_slug:
     type: string
