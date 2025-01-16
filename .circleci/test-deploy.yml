@@ -54,6 +54,7 @@ workflows:
           pub_type: production
           # Ensure this job requires all test jobs and the pack job.
           requires:
+            - orb-tools/pack
             - Trigger with params
             - Trigger with no params
           context: orb-publisher
