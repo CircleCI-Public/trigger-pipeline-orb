@@ -28,13 +28,9 @@ if [ -z "$PARAM_TOKEN" ]; then
 fi
 
 if [ -n "$PARAM_PARAMETERS" ]; then
-    PARAMETERS=$(echo "$PARAM_PARAMETERS" | awk -F, '{
-        for (i = 1; i <= NF; i++) {
-            split($i, pair, "=");
-            if (i > 1) printf ",";
-            printf "\""pair[1]"\":\""pair[2]"\"";
-        }
-    }' | sed 's/^/{/; s/$/}/')
+    PARAMETERS=$(printf '%s\n' "$PARAM_PARAMETERS" | jq -Rn '
+      ( input | split(",") | map( split("=") | { (.[0]): .[1] } ) | add )
+    ')
 else
     PARAMETERS="{}"
 fi
